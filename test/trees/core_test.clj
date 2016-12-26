@@ -1,6 +1,6 @@
 (ns trees.core-test
   (:require [clojure.test :refer :all]
-            [trees.again :refer :all]
+            [trees.core :refer :all]
             [clojure.pprint :as pprint]))
 
 
@@ -22,9 +22,6 @@
   (testing "flattening a tree produces a depth first sequence"
     (is (= [:a :b :c :d :h :b :c :d :h] (flatten-tree d))))
 
-  (testing "the degree of a node represents the number of immediate subtrees"
-    (is (= 2 (degree d))))
-
   (testing "the cardinality of a tree is the number of total nodes in the tree"
     (is (= 9 (cardinality d))))
 
@@ -40,12 +37,12 @@
   (testing "common subtree cardinality"
     (is (= 3 (common-subtree-cardinality (second a) (second d)))))
 
-  (testing "getting all subtrees of a tree works"
-    (is (= '((:m (:b (:c :d :f))) (:b (:c :d :f))) (all-subtrees g))))
-
   (testing "pairs of a tree return as expected"
     (is (= ['(:a 0) '(:b 1) '(:c 2) '(:d 2)] (pairs a))))
 
   (testing "tree operation costs return as expected"
     (is (= {:delete [1.7142857142857142], :insert [2.2857142857142856 2.2857142857142856]}
-           (tree-operation-costs a d)))))
+           (tree-operation-costs a d))))
+
+  (testing "edit distance between a and d is as expected"
+    (is (= 3.2857142857142856 (distance a d)))))
