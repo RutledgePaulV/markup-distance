@@ -44,5 +44,8 @@
     (is (= {:delete [1.7142857142857142], :insert [2.2857142857142856 2.2857142857142856]}
            (tree-operation-costs a d))))
 
-  (testing "edit distance between a and d is as expected"
-    (is (= 3.2857142857142856 (distance a d)))))
+  (testing "a is more similar to b than it is to d"
+    (is (> (similarity a b) (similarity a d))))
+
+  (testing "edit distance is order independent"
+    (is (= (distance a d) (distance d a)))))

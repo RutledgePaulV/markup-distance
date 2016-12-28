@@ -25,19 +25,6 @@
 (defn first-level-subtrees [tree]
   (filterv some? (take-while (every-pred seq? #(some? (first (filter seq? %)))) (drop 1 tree))))
 
-;(defn all-subtrees [tree]
-;  (letfn [(subtrees [tree]
-;            (if (or (nil? tree) (empty? tree))
-;              '()
-;              (let [parent (first tree) children (take-while seq? (rest tree))]
-;                (if (not-empty children)
-;                  (concat
-;                    (map #(list parent %) children)
-;                    (mapcat subtrees children)
-;                    (subtrees (drop (inc (count children)) tree)))
-;                  (subtrees (next tree))))))]
-;    (mapcat subtrees (first-level-subtrees tree))))
-
 (defn foreach [f coll]
   (dorun (map f coll)))
 
@@ -103,11 +90,11 @@
     (/ 1.0 (+ 1.0 (/ common-cardinality (max s1-cardinality s2-cardinality))))))
 
 
-(defn for-indexed [items fun]
+(defn for-indexed [items f]
   (dorun
     (map
       (fn [[idx el]]
-        (fun idx el))
+        (f idx el))
       (zipmap (range 0 (count items)) items))))
 
 (defn forloop [start end callback]
