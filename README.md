@@ -9,5 +9,6 @@ a mechanism for auto-styling new pages based simply on their markup.
 Very much a work in progress at the moment :)
 
 
-[Efficient XML Structural Similarity Detection using Sub-tree
-Commonalities](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.714.7129&rep=rep1&type=pdf)
+Similarity between trees is an implementation of Tekli's edit distance algorithm
+as described in [Efficient XML Structural Similarity Detection using Sub-tree
+Commonalities](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.714.7129&rep=rep1&type=pdf).
