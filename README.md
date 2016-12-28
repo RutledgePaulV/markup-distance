@@ -1,5 +1,7 @@
 ### markup-distance
 
+[![Build Status](https://travis-ci.org/RutledgePaulV/markup-distance.svg?branch=master)](https://travis-ci.org/RutledgePaulV/markup-distance)
+
 An exploration of invariants that describe the structure of xml
 documents in order to support similarity searches (such as k-means) of
 xml documents and/or fragments. The long term goal is that an indexed
