@@ -30,7 +30,7 @@
 
 (defn pairs [tree]
   (letfn [(one-node [depth node]
-            (if (list? node)
+            (if (seq? node)
               (map (partial one-node (inc depth)) node)
               (vector node depth)))]
     (into [] (partition 2 (flatten (map (partial one-node 0) tree))))))
